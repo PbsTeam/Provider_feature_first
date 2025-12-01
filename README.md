@@ -253,7 +253,4 @@ Here are some screenshots of the example app demonstrating the key features of t
 
 <img src="./assets/screenshots/flutter_02.png" alt="Home Screen" width="300"/>
 
-### Screenshot 3
 
-<img src="https://raw.githubusercontent.com/jatinkumar1999/picker_instagram/main/assets/screenshot_03.png" alt="Home Screen" width="300"/>
- 
