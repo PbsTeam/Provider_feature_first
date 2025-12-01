@@ -246,12 +246,11 @@ Routes setup
 Here are some screenshots of the example app demonstrating the key features of this package:
 
 ### Screenshot 1
-assets/screenshots/screenshots_01.png
 
-<img src="https://raw.githubusercontent.com/PbsTeam/Provider_feature_first.git/main/assets/screenshot_01.png" alt="Home Screen" width="300"/>
+<img src="https://raw.githubusercontent.com/PbsTeam/Provider_feature_first/main/assets/screenshots/screenshots_01.png" alt="Home Screen" width="300"/>
 
 ### Screenshot 2
 
-<img src="https://raw.githubusercontent.com/PbsTeam/Provider_feature_first.git/main/assets/screenshots_02.png" alt="Home Screen" width="300"/>
+<img src="https://raw.githubusercontent.com/PbsTeam/Provider_feature_first/main/assets/screenshots/screenshots_02.png" alt="Home Screen" width="300"/>
 
 
