@@ -68,36 +68,57 @@ class _HomeScreenState extends State<HomeScreen> {
             return Column(
               children: [
                 Expanded(
-                  child: ListView.separated(
+                  child: GridView.builder(
                     controller: _scrollController,
-                    padding: const EdgeInsets.only(bottom: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                    ),
                     itemCount: homeProvider.movies.length,
-                    separatorBuilder: (_, __) => const SizedBox(height: 10),
                     itemBuilder: (context, index) {
                       final tvShows = homeProvider.movies[index];
 
                       return Card(
                         color: context.theme.cardColor,
-                        margin: const EdgeInsets.symmetric(horizontal: 20),
                         elevation: 4.0,
-                        child: ListTile(
-                          contentPadding: const EdgeInsets.all(10),
-                          leading: ClipRRect(
-                            borderRadius: BorderRadius.circular(60 / 2),
-                            child: Image.network(
-                              tvShows.imageThumbnail ?? '',
-                              width: 60,
-                              height: 60,
-                              fit: BoxFit.cover,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10),
+                                  topLeft: Radius.circular(10),
+                                ),
+                                child: Image.network(
+                                  tvShows.imageThumbnail ?? '',
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
-                          ),
-                          title: Text(
-                            tvShows.name ?? '',
-                            style: context.theme.textTheme.titleMedium!.copyWith(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 5,
+                                vertical: 6,
+                              ),
+                              child: Text(
+                                tvShows.name ?? '',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: context.theme.textTheme.titleMedium!
+                                    .copyWith(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       );
                     },
@@ -108,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 15),
                   const Center(child: Loader()),
                   const SizedBox(height: 15),
-                ]
+                ],
               ],
             );
           }
@@ -117,7 +138,6 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
     );
-
   }
 
   Future<bool?> showLogoutBottomSheet(
